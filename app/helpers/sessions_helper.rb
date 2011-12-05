@@ -18,7 +18,7 @@ module SessionsHelper
     current_user.id == user.id
   end
   def current_user=(user)
-    current_user = user
+    @current_user = user
   end
 
   def current_user
@@ -39,11 +39,8 @@ module SessionsHelper
 
   private
 
-    def user_from_remember_token
+   def user_from_remember_token
       User.authenticate_with_salt(*remember_token)
-    end
-   def remember_token
-      cookies.signed[:remember_token] || [nil, nil]
    end
 
    def remember_token
