@@ -4,15 +4,23 @@ gem 'rails', '3.1.3'
 
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'will_paginate', '~> 3.0'
-gem 'sqlite3' #, '1.3.4'
 gem 'multi_json'
 gem 'jquery-rails'
+
+group :development, :test do
+  gem 'sqlite3' 
+end
+
+group :production do
+  gem 'pg'
+end
 
 group :development do
   gem 'rspec-rails', '2.6.1'
   gem 'annotate', '2.4.0'
   gem 'faker', '0.3.1'
 end
+
 
 group :test do
   gem 'rspec-rails', '2.6.1'
